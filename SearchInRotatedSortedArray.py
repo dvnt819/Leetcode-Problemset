@@ -5,7 +5,9 @@ class Solution(object):
         #     return nums.index(target)
         # else:
         #     return -1
-       
+
+
+        # approach using binary search
         l, r = 0, len(nums) - 1
         while l <= r:
             m = (l + r) // 2
