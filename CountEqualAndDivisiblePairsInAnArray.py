@@ -1,15 +1,11 @@
 class Solution(object):
-    def countGood(self, nums, k):
-        mpp = {}
-        cnt = left = 0
-        for i in range(len(nums)):
-            if nums[i] not in mpp:
-                mpp[nums[i]] = 0
-            k -= mpp[nums[i]]
-            mpp[nums[i]] += 1
-            while k <= 0:
-                mpp[nums[left]] -= 1
-                k += mpp[nums[left]]
-                left += 1
-            cnt += left
-        return cnt
+    def countPairs(self, nums, k):
+        count = 0
+        n = len(nums)
+
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                if nums[i] == nums[j] and (i * j) % k == 0:
+                    count += 1
+
+        return count
